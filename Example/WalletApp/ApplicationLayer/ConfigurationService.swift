@@ -10,7 +10,7 @@ final class ConfigurationService {
 
     func configure(importAccount: ImportAccount) {
         Networking.configure(
-            groupIdentifier: "group.com.walletconnect.sdk",
+            groupIdentifier: "group.com.ftech.fcall",
             projectId: InputConfig.projectId,
             socketFactory: DefaultSocketFactory()
         )
@@ -38,7 +38,7 @@ final class ConfigurationService {
         if let clientId = try? Networking.interactor.getClientId() {
             LoggingService.instance.setUpUser(account: importAccount.account.absoluteString, clientId: clientId)
             ProfilingService.instance.setUpProfiling(account: importAccount.account.absoluteString, clientId: clientId)
-            let groupKeychain = GroupKeychainStorage(serviceIdentifier: "group.com.walletconnect.sdk")
+            let groupKeychain = GroupKeychainStorage(serviceIdentifier: "group.com.ftech.fcall")
             try! groupKeychain.add(clientId, forKey: "clientId")
         }
         LoggingService.instance.startLogging()
