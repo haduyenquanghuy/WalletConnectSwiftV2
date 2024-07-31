@@ -36,7 +36,7 @@ class NotificationService: UNNotificationServiceExtension {
     private func handleWeb3WalletNotification(content: UNNotificationContent, topic: String, tag: UInt, ciphertext: String) -> UNMutableNotificationContent {
 
         do {
-            let web3WalletDecryptionService = try Web3WalletDecryptionService(groupIdentifier: "group.com.ftech.fcall")
+            let web3WalletDecryptionService = try Web3WalletDecryptionService(groupIdentifier: "group.com.huyhdq.wallet-connect")
 
             let decryptedPayload = try web3WalletDecryptionService.decryptMessage(topic: topic, ciphertext: ciphertext, tag: tag)
 
@@ -74,7 +74,7 @@ class NotificationService: UNNotificationServiceExtension {
 
     private func handleNotifyNotification(content: UNNotificationContent, topic: String, ciphertext: String) -> UNMutableNotificationContent {
         do {
-            let service = NotifyDecryptionService(groupIdentifier: "group.com.ftech.fcall")
+            let service = NotifyDecryptionService(groupIdentifier: "group.com.huyhdq.wallet-connect")
             let (pushMessage, subscription, account) = try service.decryptMessage(topic: topic, ciphertext: ciphertext)
 
             log("message decrypted", account: account, topic: topic, message: pushMessage)
@@ -190,7 +190,7 @@ private extension NotificationService {
     }
 
     func log(_ event: String, account: Account? = nil, topic: String? = nil, message: NotifyMessage? = nil) {
-        let keychain = GroupKeychainStorage(serviceIdentifier: "group.com.ftech.fcall")
+        let keychain = GroupKeychainStorage(serviceIdentifier: "group.com.huyhdq.wallet-connect")
         
         guard let clientId: String = try? keychain.read(key: "clientId") else {
             return

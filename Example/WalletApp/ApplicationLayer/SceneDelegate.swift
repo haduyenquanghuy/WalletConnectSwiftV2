@@ -125,7 +125,7 @@ private extension SceneDelegate {
 
     func configureWeb3WalletClientIfNeeded() {
         Networking.configure(
-            groupIdentifier: "group.com.ftech.fcall",
+            groupIdentifier: "group.com.huyhdq.wallet-connect",
             projectId: InputConfig.projectId,
             socketFactory: DefaultSocketFactory()
         )

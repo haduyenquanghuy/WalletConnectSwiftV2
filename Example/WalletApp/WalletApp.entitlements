@@ -12,7 +12,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.ftech.fcall</string>
+		<string>group.com.huyhdq.wallet-connect</string>
 	</array>
 </dict>
 </plist>
